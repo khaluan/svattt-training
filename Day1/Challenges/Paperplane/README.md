@@ -1,0 +1,3 @@
+# Challenge Paper Planes - Cryptohack - Symmetric Cipher
+Server: https://cryptohack.org/challenges/paper_plane/solutions/
+Idea: ...
