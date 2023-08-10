@@ -51,10 +51,10 @@ def main():
     builder.set_issuer(b"vnsecurity")
 
     # Please specify your citizen ID and name:
-    # cid = read_bytes()
-    # cname = read_bytes()
-    cid = b'a'
-    cname = b'b'
+    cid = read_bytes()
+    cname = read_bytes()
+    # cid = b'a'
+    # cname = b'b'
     builder.set_citizen(cid, cname)
 
     # Here's your certificate
@@ -65,9 +65,10 @@ def main():
     print_bytes(builder.mp.get_public_info())
 
     # Give us your certificate
-    # user_cert = read_bytes()
-    print(builder.debug(b'issuer|vnsecurity|citizen_id|a|citizen_name|b|doses|\x00\x80\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\xa8|dose|2'))
-    user_cert = ''
+    user_cert = read_bytes()
+    # print(builder.debug(b'issuer|vnsecurity|citizen_id|a|citizen_name|b|doses|1|doses|2
+    # \x00\x80\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\xa8|dose|2'))
+    # user_cert = ''
     # You have to take at least 2 doses of COVID vaccine to get the flag
     doses = int.from_bytes(builder.parse(user_cert)[b"doses"], "big")
     if doses >= 2:
